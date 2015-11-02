@@ -30,7 +30,7 @@ public class Student {
     protected boolean onCampus;
 
     private void Student(String name, String year, double stationeryCosts,
-                         int creditHours, double costPerCreditHour, boolean onCampus);
+                         int creditHours, double costPerCreditHour, boolean onCampus)
     {
         String name, year;
         boolean onCampus;
@@ -71,8 +71,8 @@ public class Student {
         if (this.onCampus) {
 //            public String instanceName = this.name;
             CampusStudent this.name = new CampusStudent(this.name, this.year,
-                    this.stationeryCosts, this.costPerCreditHour, this.creditHours);
-        }
+            this.stationeryCosts, this.costPerCreditHour, this.creditHours);
+    }
 
     }
 
