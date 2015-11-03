@@ -24,9 +24,9 @@ package com.company;
 
 
 public class Student {
-        private String name, yearName;
-        private double stationeryCosts, costPerCreditHour, totalYearTuitionCost;
-        private int creditHours;
+        protected String name, yearName;
+        protected double stationeryCosts, costPerCreditHour, totalYearTuitionCost;
+        protected int creditHours;
 
     public Student() {}
 
@@ -42,13 +42,12 @@ public class Student {
     public void setCostPerCreditHour(double costPerCreditHour){
         this.costPerCreditHour = costPerCreditHour;
     }
-    public void setTotalYearTuitionCost(double totalYearTuitionCost){
-        this.totalYearTuitionCost = totalYearTuitionCost;
+    public void setTotalYearTuitionCost(double costPerCreditHour, int creditHours){
+        this.totalYearTuitionCost = this.costPerCreditHour * creditHours;
     }
     public void setCreditHours(int creditHours){
         this.creditHours = creditHours;
     }
-
 
     }
 

@@ -11,8 +11,8 @@ public class ApplicationForm {
 
     private String name, yearName, studentId;
     private boolean onCampus;
-    private double stationeryCosts, costPerCreditHour, totalYearTuitionCost;
-    private int creditHours, year;
+    private double stationeryCosts, costPerCreditHour, totalYearTuitionCost, weeklyRent, estimatedWeeklyLivingCosts;
+    private int creditHours, year, weeksLivingOnCampusDuringYear;
 
     private Scanner in = new Scanner(System.in);
 
@@ -25,10 +25,12 @@ public class ApplicationForm {
 
         System.out.println("Will you be staying on campus or in a nearby apartment? (y/n");
         if (in.next().equals("n")){
-            newStudent = new Student(name);
+            newStudent = new Student();
         } else {
-            newStudent = new CampusStudent(name);
+            newStudent = new CampusStudent();
         }
+
+        newStudent.setName(name);
 
         System.out.println("Hello, " + name + "please type in your student ID");
         studentId = in.next();
@@ -36,32 +38,49 @@ public class ApplicationForm {
         System.out.println("Thank you " + name + ", are you 1.freshman, 2.sophmore, 3.junior or 4.senior?");
         year = in.nextInt();
         switch (year){
-            case 1: yearName = "freshman";
+            case 1: newStudent.setYearName("freshman");
                 break;
-            case 2: yearName = "sophmore";
+            case 2: newStudent.setYearName("sophmore");
                 break;
-            case 3: yearName = "junior";
+            case 3: newStudent.setYearName("junior");
                 break;
-            case 4: yearName = "senior";
+            case 4: newStudent.setYearName("senior");
                 break;
-            default: yearName = "unknown";
+            default: newStudent.setYearName("unknown");
         }
-
-
-        if(newStudent instanceof CampusStudent) {
-
-        }
-
 
         System.out.println("How much, in $, do you estimate your textbooks and stationery will cost you?");
         stationeryCosts = in.nextDouble();
+        newStudent.setStationeryCosts(stationeryCosts);
 
         System.out.println("How many credit hours are you taking for the year?");
         creditHours = in.nextInt();
+        newStudent.setCreditHours(creditHours);
 
         System.out.println("How much does each credit hour cost?");
         costPerCreditHour = in.nextDouble();
-        totalYearTuitionCost = costPerCreditHour * creditHours;
+        newStudent.setCostPerCreditHour(costPerCreditHour);
+
+        newStudent.setTotalYearTuitionCost(costPerCreditHour, creditHours);
+
+        if(newStudent instanceof CampusStudent) {
+
+            System.out.println("How many weeks will you be living on campus or nearby apartment ?");
+            weeksLivingOnCampusDuringYear = in.nextInt();
+            ((CampusStudent) newStudent).setWeeksLivingOnCampusDuringYear(weeksLivingOnCampusDuringYear);
+
+            System.out.println("What is your weekly rent?");
+            weeklyRent = in.nextDouble();
+            ((CampusStudent) newStudent).setweeklyRent(weeklyRent);
+
+            System.out.println("What do you estimate your other weekly costs to be?");
+            estimatedWeeklyLivingCosts = in.nextDouble();
+            ((CampusStudent) newStudent).setEstimatedWeeklyLivingCosts(estimatedWeeklyLivingCosts);
+        }
+
+
+
+
 
 
     }
