@@ -2,26 +2,32 @@ package com.company;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
+import java.util.Objects;
+
 
 
 public class Main {
 
     private static Map<String, Student> studentMap = new HashMap<>();
 
-    static Scanner in = new Scanner(System.in);
-
     public static void main(String[] args) {
 
-        String studentId = Main.in.next();
+        System.out.println("What is your student ID?");
+        String studentId = in.next();
+
+        System.out.println("do you live on campus? (y/n)");
+        String liveOnCampus = Main.in.next();
+        liveOnCampus = liveOnCampus == null ? "n" : liveOnCampus;
+
+        Student student = null;
+        if ( liveOnCampus.equals( "y" ) || liveOnCampus.equals( "yes" )){
+            student = new CampusStudent(studentId);
+        } else if ( liveOnCampus.equals( "n" ) || liveOnCampus.equals( "no" ) ){
+            student = new Student(studentId);
+        }
 
 
-
-// do you live on campus?
-        // what is your student ID number? in.next();
-
-        // if yes: CampusStudent *var ID number* = new CampusStudent();
-        studentMap.put(studentId, new CampusStudent());
+        studentMap.put(studentId, student);
 
     }
 
