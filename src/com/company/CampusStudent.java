@@ -6,6 +6,8 @@ package com.company;
 // estimated amount of room and board per year
 
 
+import java.util.Scanner;
+
 public class CampusStudent extends Student{
 
     private double estimatedWeeklyLivingCosts, weeklyRent, roomAndBoardPerYear;
@@ -43,6 +45,29 @@ public class CampusStudent extends Student{
         sb.append("room and board per year : "  + this.roomAndBoardPerYear + "\n");
 
         return sb.toString();
+    }
+
+    public static CampusStudent fromStudent(Student student) {
+        CampusStudent newStudentInstance = new CampusStudent();
+        newStudentInstance.setName(student.name);
+        newStudentInstance.setYearName(student.yearName);
+        newStudentInstance.setStationeryCosts(student.stationeryCosts);
+        newStudentInstance.setCostPerCreditHour(student.costPerCreditHour);
+        newStudentInstance.setCreditHours(student.creditHours);
+        newStudentInstance.setTotalYearTuitionCost(student.costPerCreditHour, student.creditHours);
+        return newStudentInstance;
+    }
+
+    public Student toStudent(){
+        Student newStudentInstance = new Student();
+        newStudentInstance.setName(this.name);
+        newStudentInstance.setYearName(this.yearName);
+        newStudentInstance.setStationeryCosts(this.stationeryCosts);
+        newStudentInstance.setCostPerCreditHour(this.costPerCreditHour);
+        newStudentInstance.setCreditHours(this.creditHours);
+        newStudentInstance.setTotalYearTuitionCost(this.costPerCreditHour, this.creditHours);
+
+        return newStudentInstance;
     }
 
 }
