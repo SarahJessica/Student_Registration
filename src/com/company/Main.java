@@ -1,26 +1,18 @@
 package com.company;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
+import java.util.Objects;
+import java.util.Scanner;
 
 
 public class Main {
 
-    private static Map<String, Student> studentMap = new HashMap<>();
-
     public static void main(String[] args) {
 
-        System.out.println("What is your student ID?");
-        String studentId = in.next();
-
-
-
-        studentMap.put(studentId, student);
+    ApplicationForm applicationForm = new ApplicationForm();
+        applicationForm.makeStudent();
 
     }
-
 
 
 }

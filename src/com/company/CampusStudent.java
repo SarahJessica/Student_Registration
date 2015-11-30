@@ -16,14 +16,16 @@ public class CampusStudent extends Student{
     public void setEstimatedWeeklyLivingCosts(double estimatedWeeklyLivingCosts){
         this.estimatedWeeklyLivingCosts = estimatedWeeklyLivingCosts;
     }
-    public void setweeklyRent(double weeklyRent){
+    public void setWeeklyRent(double weeklyRent){
         this.weeklyRent = weeklyRent;
     }
+
     public void setWeeksLivingOnCampusDuringYear(int weeksLivingOnCampusDuringYear){
         this.weeksLivingOnCampusDuringYear = weeksLivingOnCampusDuringYear;
     }
-    public void setRoomAndBoardPerYear = (double roomAndBoardPerYear){
-        this.roomAndBoardPerYear = roomAndBoardPerYear;
+
+    public void setRoomAndBoardPerYear(){
+        this.roomAndBoardPerYear = (estimatedWeeklyLivingCosts + weeklyRent) * weeksLivingOnCampusDuringYear;
     }
 
 }

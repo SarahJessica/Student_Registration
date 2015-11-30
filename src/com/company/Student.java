@@ -22,7 +22,6 @@ package com.company;
 */
 
 
-
 public class Student {
         protected String name, yearName;
         protected double stationeryCosts, costPerCreditHour, totalYearTuitionCost;
@@ -47,8 +46,6 @@ public class Student {
     }
     public void setCreditHours(int creditHours){
         this.creditHours = creditHours;
-    }
-
     }
 
 

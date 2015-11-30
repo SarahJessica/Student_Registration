@@ -1,27 +1,30 @@
 package com.company;
 
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
-/**
- * Created by leives01 on 02/11/15.
- */
 public class ApplicationForm {
 
     private String name, yearName, studentId;
     private boolean onCampus;
     private double stationeryCosts, costPerCreditHour, totalYearTuitionCost, weeklyRent, estimatedWeeklyLivingCosts;
     private int creditHours, year, weeksLivingOnCampusDuringYear;
+    private static Map<String, Student> studentMap = new HashMap<>();
 
     private Scanner in = new Scanner(System.in);
 
-    public Student makeStudent(){
+    public void makeStudent(){
+        Student newStudent;
 
         System.out.println("Welcome! Please enter your name?");
         name = in.next();
 
-        Student newStudent = null;
+
+        System.out.println("Hello, " + name + " please type in your student ID");
+        studentId = in.next();
+
+
 
         System.out.println("Will you be staying on campus or in a nearby apartment? (y/n");
         if (in.next().equals("n")){
@@ -32,8 +35,6 @@ public class ApplicationForm {
 
         newStudent.setName(name);
 
-        System.out.println("Hello, " + name + "please type in your student ID");
-        studentId = in.next();
 
         System.out.println("Thank you " + name + ", are you 1.freshman, 2.sophmore, 3.junior or 4.senior?");
         year = in.nextInt();
@@ -71,19 +72,21 @@ public class ApplicationForm {
 
             System.out.println("What is your weekly rent?");
             weeklyRent = in.nextDouble();
-            ((CampusStudent) newStudent).setweeklyRent(weeklyRent);
+            ((CampusStudent) newStudent).setWeeklyRent(weeklyRent);
 
             System.out.println("What do you estimate your other weekly costs to be?");
             estimatedWeeklyLivingCosts = in.nextDouble();
             ((CampusStudent) newStudent).setEstimatedWeeklyLivingCosts(estimatedWeeklyLivingCosts);
         }
 
-
-
+        in.close();
+        studentMap.put(studentId, new Student());
 
 
 
     }
 
-
+    public static Map<String, Student> getStudentMap() {
+        return studentMap;
+    }
 }
