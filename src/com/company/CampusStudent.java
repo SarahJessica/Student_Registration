@@ -28,4 +28,21 @@ public class CampusStudent extends Student{
         this.roomAndBoardPerYear = (estimatedWeeklyLivingCosts + weeklyRent) * weeksLivingOnCampusDuringYear;
     }
 
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("name : "                     + this.name + "\n");
+        sb.append("year : "                     + this.yearName + "\n");
+        sb.append("stationery costs : "         + this.stationeryCosts + "\n");
+        sb.append("cost per credit hour : "     + this.costPerCreditHour + "\n");
+        sb.append("total year tuition cost : "  + this.totalYearTuitionCost + "\n");
+        sb.append("number of credit hours : "   + this.creditHours + "\n");
+        sb.append("campus student? : YES");
+        sb.append("weekly living costs : "      + this.estimatedWeeklyLivingCosts + "\n");
+        sb.append("weekly rent : "              + this.weeklyRent + "\n");
+        sb.append("weeks living on campus : "   + this.weeksLivingOnCampusDuringYear + "\n");
+        sb.append("room and board per year : "  + this.roomAndBoardPerYear + "\n");
+
+        return sb.toString();
+    }
+
 }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ApplicationForm {
+public class OfficeAdminForm {
 
     private String name, yearName, studentId;
     private boolean onCampus;
@@ -86,7 +86,16 @@ public class ApplicationForm {
 
     }
 
-    public static Map<String, Student> getStudentMap() {
-        return studentMap;
+    public void retrieveInfo(String studentId){
+        Student student = studentMap.get(studentId);
+        if (student == null) {
+            System.out.println("error typing in ID");
+        } else {
+            System.out.println(student);
+        }
+    }
+
+    public void deleteStudent(String studentId){
+        studentMap.remove(studentId);
     }
 }
