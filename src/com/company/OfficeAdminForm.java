@@ -79,12 +79,10 @@ public class OfficeAdminForm {
             ((CampusStudent) newStudent).setEstimatedWeeklyLivingCosts(estimatedWeeklyLivingCosts);
         }
 
-        in.close();
-        studentMap.put(studentId, new Student());
-
-
+        studentMap.put(studentId, newStudent);
 
     }
+
 
     public void retrieveInfo(String studentId){
         Student student = studentMap.get(studentId);

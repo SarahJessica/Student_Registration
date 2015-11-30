@@ -36,7 +36,7 @@ public class CampusStudent extends Student{
         sb.append("cost per credit hour : "     + this.costPerCreditHour + "\n");
         sb.append("total year tuition cost : "  + this.totalYearTuitionCost + "\n");
         sb.append("number of credit hours : "   + this.creditHours + "\n");
-        sb.append("campus student? : YES");
+        sb.append("campus student? : YES"       + "\n");
         sb.append("weekly living costs : "      + this.estimatedWeeklyLivingCosts + "\n");
         sb.append("weekly rent : "              + this.weeklyRent + "\n");
         sb.append("weeks living on campus : "   + this.weeksLivingOnCampusDuringYear + "\n");

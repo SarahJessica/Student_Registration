@@ -15,7 +15,8 @@ public class CrudOptions {
         while (true) {
 
 
-            System.out.println("Would you like to 1. register a new student, 2. retrieve information on existing student, or 3. delete a student file?");
+            System.out.println("Would you like to 1. register a new student, 2. retrieve information on existing student, 3. delete a student file," +
+                    "or 4. quit application");
             int choice = in.nextInt();
             String studentId;
 
