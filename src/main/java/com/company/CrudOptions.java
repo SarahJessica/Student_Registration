@@ -2,9 +2,6 @@ package com.company;
 
 import java.util.Scanner;
 
-/**
- * Created by leives01 on 30/11/15.
- */
 public class CrudOptions {
     private Scanner in = new Scanner(System.in);
 
